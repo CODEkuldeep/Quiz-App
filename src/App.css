@@ -1,38 +1,222 @@
-.App {
-  text-align: center;
+/* File: src/App.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #ff6a00, #ee0979);
+  --primary-gradient-hover: linear-gradient(135deg, #ee0979, #c60164);
+  --light-bg: #ffffff;
+  --dark-bg: #1a1a1a;
+  --light-text: #222;
+  --dark-text: #f0f0f0;
+  --card-light: #f5f8fa;
+  --card-dark: #2b2b2b;
+  --border-color: #ccc;
+  --correct: green;
+  --incorrect: red;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  color: var(--light-text);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: var(--dark-text);
+}
+
+.App {
+  max-width: 900px;
+  width: 100%;
+  background: var(--light-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin: 20px;
+  transition: background 0.3s;
+}
+
+body.dark-mode .App {
+  background: var(--dark-bg);
+}
+
+.start-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 400px;
+  text-align: center;
+}
+
+.start-screen h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.start-screen input {
+  padding: 14px;
+  margin-bottom: 24px;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.start-screen input:focus {
+  border-color: #007bff;
+}
+
+.start-screen button,
+.header button {
+  padding: 14px 32px;
+  font-size: 16px;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.start-screen button:hover,
+.header button:hover {
+  background: var(--primary-gradient-hover);
+  transform: scale(1.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.toggle-theme-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  margin-left: 10px;
+  background: transparent;
+  border: 1px solid #aaa;
+  color: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-theme-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.question-card {
+  margin-bottom: 30px;
+}
+
+.question-card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.option-btn {
+  padding: 14px;
+  background-color: var(--card-light);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .option-btn {
+  background-color: var(--card-dark);
+  color: var(--dark-text);
+}
+
+.option-btn:hover {
+  background-color: #e9f1f7;
+}
+
+.option-btn.selected {
+  background-color: #28a745;
+  color: white;
+  border-color: #1e7e34;
+  font-weight: bold;
+}
+
+.navigation-panel {
+  margin-top: 30px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-btn {
+  width: 42px;
+  height: 42px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+}
+
+.nav-btn.visited {
+  background-color: #ffc107;
+}
+
+.nav-btn.answered {
+  background-color: #28a745;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-btn.current {
+  border: 2px solid #007bff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.report-page {
+  padding-top: 20px;
+}
+
+.report-question {
+  margin-bottom: 24px;
+  padding: 18px;
+  border-radius: 12px;
+  background-color: #f1f6fa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.correct {
+  color: var(--correct);
+  font-weight: bold;
+}
+
+.incorrect {
+  color: var(--incorrect);
+  font-weight: bold;
 }
