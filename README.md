@@ -1,7 +1,7 @@
 # Quiz-App
 # 🧠 Quiz App –
 
-An interactive and fully responsive Quiz Application built using React.js, created as part of the **CausalFunnel Software Engineer Intern assignment**. The app fetches live questions from the Open Trivia API and includes features like a timer, navigation, answer tracking, and a report page.
+An interactive and fully responsive Quiz Application built using React.js. The app fetches live questions from the Open Trivia API and includes features like a timer, navigation, answer tracking, and a report page.
 
 ---
 
